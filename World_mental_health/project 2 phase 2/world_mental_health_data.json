@@ -1,0 +1,201 @@
+{
+  "world" : {
+    "name" : "World Mental Health Data",
+    "regions" : {
+      "North America" : {
+        "United States" : {
+          "depression_rate_per_100k" : 5762,
+          "anxiety_rate_per_100k" : 6171,
+          "suicide_rate_per_100k" : 15.3,
+          "beds_in_mental_hospitals_per_100k" : 18.66,
+          "mental_health_units_in_general_hospitals_per_100k" : 0.35,
+          "mental_health_outpatient_facilities_per_100k" : 0.37,
+          "mental_health_units_in_general_hospitals_admissions_per_100k" : 59.83,
+          "mental_hospitals_per_100k" : 0.19,
+          "mental_hospital_admissions_per_100k" : 53.01,
+          "occupational_therapists_per_100k" : 10.54,
+          "psychologists_per_100k" : 29.86
+        },
+        "Canada" : {
+          "depression_rate_per_100k" : 4311,
+          "anxiety_rate_per_100k" : 4683,
+          "suicide_rate_per_100k" : 12.5,
+          "beds_in_mental_hospitals_per_100k" : 11.09,
+          "mental_health_units_in_general_hospitals_per_100k" : 0.40,
+          "mental_health_outpatient_facilities_per_100k" : 0.33,
+          "mental_health_units_in_general_hospitals_admissions_per_100k" : 44.53,
+          "mental_hospitals_per_100k" : 0.06,
+          "mental_hospital_admissions_per_100k" : 46.88,
+          "occupational_therapists_per_100k" : 14.68,
+          "psychologists_per_100k" : 48.74
+        },
+        "Mexico" : {
+          "depression_rate_per_100k" : 4617,
+          "anxiety_rate_per_100k" : 3629,
+          "suicide_rate_per_100k" : 6.84,
+          "beds_in_mental_hospitals_per_100k" : 3.06,
+          "mental_health_units_in_general_hospitals_per_100k" : 0.01,
+          "mental_health_outpatient_facilities_per_100k" : 0.13,
+          "mental_health_units_in_general_hospitals_admissions_per_100k" : 32.21,
+          "mental_hospitals_per_100k" : 0.03,
+          "mental_hospital_admissions_per_100k" : 55.61,
+          "occupational_therapists_per_100k" : 0.21,
+          "psychologists_per_100k" : 3.46
+        }
+      },
+      "South America" : {
+        "Brazil" : {
+          "depression_rate_per_100k" : 4841,
+          "anxiety_rate_per_100k" : 7994,
+          "suicide_rate_per_100k" : 7.78,
+          "beds_in_mental_hospitals_per_100k" : 9.79,
+          "mental_health_units_in_general_hospitals_per_100k" : 0.12,
+          "mental_health_outpatient_facilities_per_100k" : 1.49,
+          "mental_health_units_in_general_hospitals_admissions_per_100k" : 60.78,
+          "mental_hospitals_per_100k" : 0.07,
+          "mental_hospital_admissions_per_100k" : 216.31,
+          "occupational_therapists_per_100k" : 3.17,
+          "psychologists_per_100k" : 12.37
+        },
+        "Argentina" : {
+          "depression_rate_per_100k" : 3398,
+          "anxiety_rate_per_100k" : 5162,
+          "suicide_rate_per_100k" : 10.5,
+          "beds_in_mental_hospitals_per_100k" : 40.57,
+          "mental_health_units_in_general_hospitals_per_100k" : 1.07,
+          "mental_health_outpatient_facilities_per_100k" : 1.72,
+          "mental_health_units_in_general_hospitals_admissions_per_100k" : 60.53,
+          "mental_hospitals_per_100k" : 0.94,
+          "mental_hospital_admissions_per_100k" : 80.76,
+          "occupational_therapists_per_100k" : 21.71,
+          "psychologists_per_100k" : 222.57
+        }
+      },
+      "Europe" : {
+        "United Kingdom" : {
+          "depression_rate_per_100k" : 5857,
+          "anxiety_rate_per_100k" : 4689,
+          "suicide_rate_per_100k" : 8.47,
+          "beds_in_mental_hospitals_per_100k" : 23.91,
+          "mental_health_units_in_general_hospitals_per_100k" : 0.62,
+          "mental_health_outpatient_facilities_per_100k" : 3.83,
+          "mental_health_units_in_general_hospitals_admissions_per_100k" : 150.81,
+          "mental_hospitals_per_100k" : 0.41,
+          "mental_hospital_admissions_per_100k" : 643.90,
+          "occupational_therapists_per_100k" : 20.06,
+          "psychologists_per_100k" : 93.37
+        },
+        "Germany" : {
+          "depression_rate_per_100k" : 4814,
+          "anxiety_rate_per_100k" : 6739,
+          "suicide_rate_per_100k" : 12.3,
+          "beds_in_mental_hospitals_per_100k" : 55.70,
+          "mental_health_units_in_general_hospitals_per_100k" : 0.49,
+          "mental_health_outpatient_facilities_per_100k" : 0.08,
+          "mental_health_units_in_general_hospitals_admissions_per_100k" : 500.20,
+          "mental_hospitals_per_100k" : 0.34,
+          "mental_hospital_admissions_per_100k" : 725.13,
+          "occupational_therapists_per_100k" : 13.20,
+          "psychologists_per_100k" : 49.56
+        },
+        "France" : {
+          "depression_rate_per_100k" : 5306,
+          "anxiety_rate_per_100k" : 6576,
+          "suicide_rate_per_100k" : 13.7,
+          "beds_in_mental_hospitals_per_100k" : 6.98,
+          "mental_health_units_in_general_hospitals_per_100k" : 0.60,
+          "mental_health_outpatient_facilities_per_100k" : 3.58,
+          "mental_health_units_in_general_hospitals_admissions_per_100k" : 342.08,
+          "mental_hospitals_per_100k" : 0.18,
+          "mental_hospital_admissions_per_100k" : 985.44,
+          "occupational_therapists_per_100k" : 20.91,
+          "psychologists_per_100k" : 48.70
+        }
+      },
+      "Asia" : {
+        "China" : {
+          "depression_rate_per_100k" : 3733,
+          "anxiety_rate_per_100k" : 3364,
+          "suicide_rate_per_100k" : 9.17,
+          "beds_in_mental_hospitals_per_100k" : 24.29,
+          "mental_health_units_in_general_hospitals_per_100k" : 0.18,
+          "mental_health_outpatient_facilities_per_100k" : 0.84,
+          "mental_health_units_in_general_hospitals_admissions_per_100k" : 97.98,
+          "mental_hospitals_per_100k" : 0.07,
+          "mental_hospital_admissions_per_100k" : 85.95,
+          "occupational_therapists_per_100k" : 2.20,
+          "psychologists_per_100k" : 0.10
+        },
+        "India" : {
+          "depression_rate_per_100k" : 4418,
+          "anxiety_rate_per_100k" : 3006,
+          "suicide_rate_per_100k" : 13.3,
+          "beds_in_mental_hospitals_per_100k" : 1.43,
+          "mental_health_units_in_general_hospitals_per_100k" : 0.03,
+          "mental_health_outpatient_facilities_per_100k" : 0.18,
+          "mental_health_units_in_general_hospitals_admissions_per_100k" : 28.40,
+          "mental_hospitals_per_100k" : 0.01,
+          "mental_hospital_admissions_per_100k" : 16.83,
+          "occupational_therapists_per_100k" : 0.29,
+          "psychologists_per_100k" : 0.07
+        },
+        "South Korea" : {
+          "depression_rate_per_100k" : 2866,
+          "anxiety_rate_per_100k" : 3487,
+          "suicide_rate_per_100k" : 25.8,
+          "beds_in_mental_hospitals_per_100k" : 94.22,
+          "mental_health_units_in_general_hospitals_per_100k" : 0.39,
+          "mental_health_outpatient_facilities_per_100k" : 1.79,
+          "mental_health_units_in_general_hospitals_admissions_per_100k" : 185.07,
+          "mental_hospitals_per_100k" : 0.36,
+          "mental_hospital_admissions_per_100k" : 199.51,
+          "occupational_therapists_per_100k" : 5.79,
+          "psychologists_per_100k" : 1.59
+        }
+      },
+      "Africa" : {
+        "South Africa" : {
+          "depression_rate_per_100k" : 5415,
+          "anxiety_rate_per_100k" : 3869,
+          "suicide_rate_per_100k" : 15.3,
+          "beds_in_mental_hospitals_per_100k" : 16.56,
+          "mental_health_units_in_general_hospitals_per_100k" : 0.07,
+          "mental_health_outpatient_facilities_per_100k" : 0.11,
+          "mental_health_units_in_general_hospitals_admissions_per_100k" : 2.17,
+          "mental_hospitals_per_100k" : 0.12,
+          "mental_hospital_admissions_per_100k" : 4.84,
+          "occupational_therapists_per_100k" : 1.52,
+          "psychologists_per_100k" : 1.32
+        },
+        "Egypt" : {
+          "depression_rate_per_100k" : 4252,
+          "anxiety_rate_per_100k" : 4609,
+          "suicide_rate_per_100k" : 1.01,
+          "beds_in_mental_hospitals_per_100k" : 7.04,
+          "mental_health_units_in_general_hospitals_per_100k" : 0.01,
+          "mental_health_outpatient_facilities_per_100k" : 0.03,
+          "mental_health_units_in_general_hospitals_admissions_per_100k" : 6.24,
+          "mental_hospitals_per_100k" : 0.02,
+          "mental_hospital_admissions_per_100k" : 1.75,
+          "occupational_therapists_per_100k" : 1.60,
+          "psychologists_per_100k" : 0.26
+        }
+      },
+      "Oceania" : {
+        "Australia" : {
+          "depression_rate_per_100k" : 5179,
+          "anxiety_rate_per_100k" : 5986,
+          "suicide_rate_per_100k" : 12.9,
+          "beds_in_mental_hospitals_per_100k" : 7.22,
+          "mental_health_units_in_general_hospitals_per_100k" : 0.60,
+          "mental_health_outpatient_facilities_per_100k" : 3.46,
+          "mental_health_units_in_general_hospitals_admissions_per_100k" : 560.22,
+          "mental_hospitals_per_100k" : 0.07,
+          "mental_hospital_admissions_per_100k" : 40.28,
+          "occupational_therapists_per_100k" : 13.53,
+          "psychologists_per_100k" : 103.04
+        }
+      }
+    }
+  }
+}

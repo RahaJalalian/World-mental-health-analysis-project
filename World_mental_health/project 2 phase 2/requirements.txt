@@ -1,0 +1,8 @@
+# CSC111 Winter 2025: External Python libraries used in our Mental Health Project
+
+# Code checking and linting
+python-ta~=2.9.1
+
+# Data handling and visualization
+plotly>=5.22.0
+pandas

@@ -1,0 +1,187 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Modeling and Visualizing the Impact of Healthcare Access and Treatment Availability on Mental Health Disorders Across Countries}
+\author{Raha Jalalian, Irmak Aytekin, Diana Borunova, Lihi Galezerl}
+\date{March 2025}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+As students at the University of Toronto, we’ve witnessed the profound effects mental health issues like anxiety and depression can have on peers, especially international students navigating unfamiliar healthcare systems. Our \textbf{project question} is: \textbf{How do healthcare access and treatment availability impact the diagnosis and treatment of mental health disorders like depression and anxiety across countries?}
+
+We aim to uncover regional disparities in mental health infrastructure and its association with disorder prevalence. This research is motivated by global statistics showing that millions go untreated due to systemic inequalities in access to mental healthcare \cite{ihme}. By identifying patterns between mental health burdens and national investment in treatment, we hope to support discussions on improving global mental health policy.
+
+\section*{Datasets}
+We used a custom-generated dataset titled \texttt{world\_mental\_health\_data.json}, which includes mental health-related statistics across countries, organized by continent. Each country entry contains:
+\begin{itemize}[noitemsep]
+    \item Depression and anxiety rates per 100,000
+    \item Suicide rates per 100,000
+    \item Number of psychologists and occupational therapists
+    \item Hospital beds in mental hospitals and general hospitals
+    \item Admissions, outpatient and day treatment facilities
+    \item Public expenditure on mental health
+\end{itemize}
+
+Sources include: 
+\begin{itemize}[noitemsep]
+    \item Institute for Health Metrics and Evaluation (IHME) \cite{ihme}
+    \item World Population Review \cite{depression} \cite{anxiety} \cite{suicide}
+    \item WHO Global Health Observatory \cite{beds_general} \cite{beds_mental}
+    \item WHO Mental Health Atlas \cite{atlas}
+    \item Statista \cite{statista}
+\end{itemize}
+All metrics are standardized per 100,000 population.
+
+\section*{Computational Overview}
+
+Our project models a structured dataset of global mental health statistics using a recursive tree-based architecture. Each node in our \texttt{Tree} class represents a geographic entity, with the root node labeled \texttt{"World"}, branching into regions (e.g., Asia, Europe), and finally into leaf nodes representing countries. Each country node stores a dictionary of mental health indicators such as depression rates, hospital admission counts, and healthcare resource availability.
+
+This tree structure allows us to efficiently aggregate, compare, and traverse mental health data across nested levels of geography. It supports both top-down and bottom-up computation, which is essential for calculating regional averages, identifying extreme values, and analyzing healthcare trends across different layers of the data.
+
+\subsection*{Key Computations}
+Our program performs a variety of data-driven analyses, including:
+\begin{itemize}
+    \item \textbf{Aggregation}: Functions like \texttt{avg\_depression\_by\_region}, \texttt{average\_beds\_per\_region}, and \texttt{avg\_psychologists\_by\_region} traverse the tree recursively to calculate regional averages from country-level statistics.
+    \item \textbf{Extremes and Rankings}: Functions such as \texttt{max\_min\_suicide\_rates}, \texttt{rank\_regions\_by\_hospital\_units}, and \texttt{underserved\_by\_admissions} identify which countries or regions perform best or worst in a given category.
+    \item \textbf{Ratios and Disparities}: We evaluate treatment adequacy using methods like \texttt{ratio\_of\_beds\_to\_depression} and \texttt{psych\_to\_suicide\_ratio}, which help highlight gaps between mental health burden and resource allocation.
+    \item \textbf{Correlation Analysis}: Using the \texttt{statistics} module, we calculate Pearson correlation coefficients (e.g., between depression rates and outpatient availability) with methods like \texttt{corr\_depression\_outpatient}, \texttt{corr\_anxiety\_occupational}, and \texttt{corr\_admissions\_suicide}. Helper methods (\texttt{gather\_*}) collect the necessary data points across the tree recursively.
+\end{itemize}
+
+These computations are designed for flexibility and modularity, so that a single region or the entire world can be analyzed using the same logic.
+
+\subsection*{Visualization and Interaction}
+To communicate our findings, we used the \texttt{Plotly} library to generate a variety of visualizations:
+\begin{itemize}
+    \item \textbf{Bar charts} to compare average values by region
+    \item \textbf{Bubble charts and scatter plots} to emphasize disparities in access-to-need ratios
+    \item \textbf{Heatmaps} to show average hospital admissions or correlation strengths
+    \item \textbf{Treemaps and sunburst charts} to visualize nested or hierarchical relationships
+    \item \textbf{Line charts} to compare extremes across regions
+\end{itemize}
+
+Visual outputs are handled in a separate script, where visual functions are modularized (e.g., \texttt{plot\_depression\_rates}, \texttt{plot\_mental\_health\_beds}, \texttt{plot\_psych\_to\_suicide}) and executed with the same loaded \texttt{Tree} object.
+
+\subsection*{Python Libraries Used}
+We relied on the following libraries to support our implementation:
+\begin{itemize}
+    \item \texttt{json}: To load and parse the hierarchical dataset from \texttt{world\_mental\_health\_data.json}
+    \item \texttt{typing}: For static type annotations and clarity in recursive function signatures (\texttt{Optional}, \texttt{List}, \texttt{Tuple}, \texttt{Any})
+    \item \texttt{statistics}: To compute \texttt{mean}, \texttt{pstdev}, and Pearson correlation coefficients
+    \item \texttt{plotly.express} and \texttt{plotly.graph\_objects}: For building a diverse suite of high-quality interactive visualizations
+    \item \texttt{pandas}: To structure our computed data into tables and charts for use with Plotly
+    \item \texttt{\_\_future\_\_.annotations}: To support forward references in type hints, especially helpful in recursive class design
+\end{itemize}
+
+Together, these libraries enabled our project to move from raw nested data to interactive, meaningful visual insight into global disparities in mental health care.
+
+
+\section*{Instructions for Running the Program}
+
+To run our project, follow the steps below. Your system only needs to have Python 3.13 installed:
+
+\begin{enumerate}
+    \item Download the full project zip file titled project 2 phase 2.zip from the following location:
+    \begin{itemize}
+        \item \textbf{MarkUs Submission}: project is under 25 MB and is uploaded to MarkUs.
+    \end{itemize}
+
+    \item Unzip the folder. It will include the following files:
+    \begin{itemize}
+        \item \texttt{main.py} — entry point for running the program
+        \item \texttt{world\_mental\_health\_project.py} — recursive tree logic and analysis methods
+        \item \texttt{visualizations.py} — functions to generate interactive plots
+        \item \texttt{world\_mental\_health\_data.json} — the full dataset
+        \item \texttt{requirements.txt} — list of all required libraries
+        \item \texttt{project\_analysis\_document\_final\_output.pdf} — detailed analysis and interpretation of all visual outputs
+    \item \texttt{project\_analysis\_document\_final\_output.zip} — includes all exported .png visualizations and the LaTeX source of the analysis document
+
+    \end{itemize}
+
+    \item Install the required libraries listed in the requirements.tex file
+
+    \item To run the analysis and generate visualizations, execute: python main.py
+
+    \item A series of interactive charts will appear in your browser (or saved locally depending on the implementation). These include:
+    \begin{itemize}
+        \item Average depression rates per region
+        \item Suicide rate extremes by continent
+        \item Hospital bed and psychologist availability
+        \item Ratio charts showing disparities between need and access
+        \item Correlation-based scatter plots and heatmaps
+    \end{itemize}
+
+\subsection*{Output Interpretation and Graph Analysis}
+
+Since our program’s output consists primarily of a series of data visualizations, we have written a thorough analytical report to interpret and connect these visual results back to our research question. This document functions as the primary output of our project, synthesizing insights from each graph and translating them into a broader understanding of how healthcare access and treatment availability impact mental health outcomes across countries.
+
+This analysis is provided in the file \texttt{project\_analysis\_document\_\_final\_output\_.pdf}, and is also included in the compressed file \texttt{project\_analysis\_document\_\_final\_output\_.zip}, which contains all corresponding PNG images from the graphs and the LaTeX source used to generate the analysis. 
+
+To fully understand the conclusions we have drawn from our program, it is essential to read this analysis document alongside the visual output. It provides detailed commentary on trends, correlations, and outliers observed in the graphs, forming the core evidence that answers our guiding question.
+
+
+No additional installation or system configuration is necessary. The entire project is implemented using pure Python, and all computation and visualizations are locally handled.
+
+
+\section*{Changes Since Proposal}
+
+In response to our TA’s feedback emphasizing the importance of cultural factors in mental health treatment, we considered incorporating variables related to mental health stigma and societal attitudes. However, after thorough exploration, we found that such cultural dimensions were difficult to quantify consistently across countries due to a lack of standardized data. Surveys on stigma tend to be sparse, subjective, or unavailable for many regions. As a result, we decided to focus our quantitative analysis on reliable, measurable indicators—such as the availability of hospital beds, professionals, and admission rates—while still acknowledging the influence of stigma and cultural factors qualitatively in our final discussion. This allowed us to maintain analytical rigor while respecting the complex role of cultural context.
+
+
+\section*{Discussion}
+
+\textbf{Important Note:} Our program’s primary outputs are a collection of graphs that require interpretation to connect back to our central research question. As such, we have written a thorough graph-by-graph analysis document that synthesizes key patterns, correlations, and disparities shown in the visualizations. This detailed analysis can be found in the file \texttt{project\_analysis\_document\_\_final\_output\_.pdf}, which is included in the submission zip file. That zip also contains all generated PNG visualizations and the LaTeX source file of the analysis. This document serves as the main output of our project and must be read in order to understand the conclusions we reached from the visualized data. The summary provided below offers a brief overview of the key findings discussed in that full report.
+
+Here’s an expanded version of your results section, with more depth and clearer connections to your visualizations and analysis goals:
+
+
+Our results strongly suggest that healthcare access plays a critical role in identifying and treating mental health disorders. Countries with greater mental health infrastructure—measured in terms of available beds, mental health professionals, and hospital admissions—consistently demonstrate stronger treatment capacity. For instance, Germany and the United Kingdom show high mental hospital admission rates alongside a robust mental health workforce, indicating a well-established system for identifying and supporting individuals with mental health needs.
+
+In contrast, countries like India and Egypt illustrate the challenges of under-resourced systems. Despite having large populations with likely significant mental health burdens, both countries show extremely low levels of hospital admissions, limited numbers of psychologists, and minimal infrastructure. This gap between need and access is one of the most striking patterns that emerged in our analysis.
+
+Our correlation functions revealed weak to moderate alignment between mental health disorder prevalence and treatment infrastructure across countries. In particular, countries with high suicide rates but low psychologist availability—such as South Korea—stand out as indicators of potentially unmet clinical needs. South Korea, despite its economic development, has the highest suicide rate in our dataset and very low professional support, highlighting a serious treatment gap. This suggests that even in higher-income nations, infrastructure may not be adequately aligned with population needs.
+
+Additionally, our analysis uncovered outliers like Australia, which combines relatively high access with high prevalence rates of depression and anxiety. This suggests that while healthcare access is critical, it is not the sole determinant of outcomes. Cultural factors—such as public awareness, stigma, and openness to seeking help—likely influence how frequently individuals are diagnosed or admitted for treatment. These nuances reinforce the idea that mental health outcomes are shaped by a complex interplay between infrastructure and sociocultural dynamics.
+
+Limitations include the use of static, cross-sectional data, which prevents us from analyzing changes or improvements in mental health infrastructure and outcomes over time. This restricts our ability to identify temporal trends, such as whether a country is making progress in treatment availability or experiencing worsening mental health conditions. Another significant limitation is reporting bias—particularly from under-resourced countries that may lack reliable systems for tracking mental health statistics. As a result, some data may be outdated, incomplete, or underreported, especially in regions where stigma discourages diagnosis or governments under-invest in mental health surveillance. Additionally, our team encountered a learning curve when using unfamiliar visualization libraries like Plotly and tools for interactive plotting. This occasionally led to slower development and simpler visual outputs than originally envisioned. While we successfully generated meaningful graphics, more experience with these tools could have allowed us to build more dynamic and user-friendly interfaces.
+
+Future work could expand with:
+\begin{itemize}[noitemsep]
+    \item \textbf{Time-series analysis}: Incorporating longitudinal data would allow us to observe trends in mental health indicators over time, such as rising or declining depression rates in response to policy changes or economic shifts. This would add a temporal dimension to our current cross-sectional analysis and help identify causality or progress in mental health systems.
+
+    \item \textbf{Cultural/stigma metrics}: Future iterations could aim to quantify cultural attitudes toward mental health using global stigma indices, mental health awareness campaigns, or survey-based perception data. Including such qualitative metrics would help contextualize why some countries underreport or undertreat disorders, and bridge the gap between healthcare infrastructure and real-world access.
+
+    \item \textbf{Improved interactive visuals}: With more time and technical experience, we could create a smoother and more customizable user interface for interacting with the data. Enhancements might include dynamic filtering by indicator, region, or year (in the case of time-series), hover-based info panels, and embedded narrative explanations alongside each graph to guide user interpretation.
+\end{itemize}
+
+
+\newpage
+\begin{thebibliography}{9}
+\bibitem{ihme} Institute for Health Metrics and Evaluation. \textit{Prevalence of Mental Disorders by Country}. IHME. \url{https://www.healthdata.org/research-analysis/health-risks-issues/mental-health}. Accessed 5 Mar. 2025.
+
+\bibitem{depression} World Population Review. \textit{Depression Rates by Country}. \url{https://worldpopulationreview.com/country-rankings/depression-rates-by-country}. Accessed 5 Mar. 2025.
+
+\bibitem{anxiety} World Population Review. \textit{Anxiety Rates by Country}. \url{https://worldpopulationreview.com/country-rankings/anxiety-rates-by-country}. Accessed 5 Mar. 2025.
+
+\bibitem{suicide} World Population Review. \textit{Suicide Rates by Country}. \url{https://worldpopulationreview.com/country-rankings/suicide-rate-by-country}. Accessed 5 Mar. 2025.
+
+\bibitem{beds_general} World Health Organization. \textit{Beds in Mental Hospitals per Country}. WHO Global Health Observatory. \url{https://apps.who.int/gho/data/node.main.MHBEDS?lang=en}. Accessed 5 Mar. 2025.
+
+\bibitem{beds_mental} World Health Organization. \textit{Beds for Mental Health in General Hospitals}. WHO Global Health Observatory. \url{https://apps.who.int/gho/data/node.main.MHBEDS?lang=en}. Accessed 5 Mar. 2025.
+
+\bibitem{atlas} World Health Organization. \textit{Mental Health Atlas}. \url{https://www.who.int/teams/mental-health-and-substance-use/data-research/mental-health-atlas}. Accessed 5 Mar. 2025.
+
+\bibitem{statista} Statista. \textit{Public Expenditure on Mental Health}. \url{https://www.statista.com}. Accessed 5 Mar. 2025.
+
+\bibitem{python} Python Software Foundation. \textit{Python 3 Documentation}. \url{https://docs.python.org/3/}. Accessed 5 Mar. 2025.
+\end{thebibliography}
+
+\end{document}
